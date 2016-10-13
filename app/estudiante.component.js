@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var EstudianteComponent = (function () {
     function EstudianteComponent() {
-        this.title = "Lista de estudiantes:";
+        this.title = "Lista de estudiantes de la iniversidad: ";
         this.estudiantes = ['Fher', 'Juan', 'Pepe'];
         this.urlImg = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRI7T7nFLwUEmG_nmDkg4pvQT6lb9Ot0enREA6erp0hORUhLnpYiQ";
         this.redondear = false;
@@ -20,11 +20,23 @@ var EstudianteComponent = (function () {
     EstudianteComponent.prototype.cambiar = function (evento) {
         this.title = evento.target.value;
     };
+    EstudianteComponent.prototype.getListaEstidiante = function () {
+        if (this.universidad == "Uni") {
+            return ["Juan ", "Pepe", "Luis"];
+        }
+        else {
+            return ["Fher", "Otto"];
+        }
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], EstudianteComponent.prototype, "universidad", void 0);
     EstudianteComponent = __decorate([
         core_1.Component({
             selector: 'estudiantes',
             // template: '<h3>Lista de Estudiantes</h3> {{estudiantes}}'
-            template: "<div [style.padding] = \"pading ? 40: 0\">\n                    <h3>{{title}} </h3>\n                    <ul>\n                        <li *ngFor='let estudiante of estudiantes'>\n                            {{estudiante}}\n                        </li>\n                    </ul>\n                    <input type=\"text\" [(ngModel)]=\"title\"/>\n                    <input type=\"text\"  (input)=cambiar($event)/>\n                    <button (click)=\"title='hola'\">ResetData</button>\n                    </div>\n                "
+            template: "<div [style.padding] = \"pading ? 40: 0\">\n                    <h3>{{title}}:{{universidad}}</h3>\n                    <ul>\n                        <li *ngFor='let estudiante of getListaEstidiante()'>\n                            {{estudiante}}\n                        </li>\n                    </ul>\n                    <input type=\"text\" [(ngModel)]=\"title\"/>\n                    <input type=\"text\"  (input)=cambiar($event)/>\n                    <button (click)=\"title='hola'\">ResetData</button>\n                    </div>\n                "
         }), 
         __metadata('design:paramtypes', [])
     ], EstudianteComponent);

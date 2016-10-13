@@ -12,11 +12,12 @@ var core_1 = require('@angular/core');
 var estudiante_component_1 = require('./estudiante.component');
 var AppComponent = (function () {
     function AppComponent() {
+        this.laUniversidad = "Unix";
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>Aprende Angular 2 Fácilmente Hola</h1><estudiantes></estudiantes>',
+            template: "<h1>Aprende Angular 2 F\u00E1cilmente Hola</h1>\n            <estudiantes [universidad] = \"laUniversidad\"></estudiantes>\n            ",
             directives: [estudiante_component_1.EstudianteComponent]
         }), 
         __metadata('design:paramtypes', [])
